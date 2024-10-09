@@ -6,6 +6,6 @@
  ├─pb.core  # 데이터 베이스 엔티티 모듈 (Player, Game, Team, etc.)<br/>
  └─pb.view # PlayBaseBall 서비스 로직 및 관리 모듈<br/>
 
-<h3>개발 환경</h3><br/>
+<h3>개발 환경</h3>
 + Java Version : 17<br/>
 + SpringBoot : 3.3.4<br/>
