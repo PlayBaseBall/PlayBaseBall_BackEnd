@@ -1,4 +1,3 @@
 rootProject.name = 'playbaseball'
-include 'pb_common'
-include 'pb_core'
-include 'pb_view'
+include 'pb.common'
+include 'pb.view'
