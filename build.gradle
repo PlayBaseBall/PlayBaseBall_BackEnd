@@ -49,3 +49,16 @@ configurations {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+project(':pb.view') {
+    dependencies {
+        implementation project(':pb.core')
+        implementation project(':pb.common')
+    }
+}
+
+project(':pb.core') {
+    dependencies {
+        implementation project(':pb.common')
+    }
+}
