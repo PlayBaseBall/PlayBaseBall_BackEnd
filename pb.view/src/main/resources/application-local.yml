@@ -1,0 +1,90 @@
+# spring
+spring:
+  config:
+    activate:
+      on-profile: local
+  main:
+    allow-bean-definition-overriding: true  # bean overriding is disabled 오류 해결 옵션
+  datasource:
+    #    driver-class-name: org.mariadb.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: "jdbc:mysql://localhost:3306/playbaseball?serverTimezone=Asia/Seoul"
+    username: "root"
+    password: "1234"
+    hikari:
+      maximum-pool-size: 10
+      max-lifetime: 180000
+  jpa:
+    #    database-platform: org.hibernate.dialect.MariaDBDialect
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      #      ddl-auto: update
+      ddl-auto: none
+    #    generate-ddl:  true
+    generate-ddl:  false
+    show-sql: false
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      max-request-size: 20MB
+  thymeleaf:
+    prefix: classpath:templates/
+    suffix: .html
+    cache: false
+  devtools:
+    livereload:
+      enabled: true
+    freemarker:
+      cache: false
+    thymeleaf:
+      cache: false
+
+## logback 설정
+logging:
+  config: classpath:logback-${spring.config.activate.on-profile}.xml
+
+server:
+  error:
+    include-exception: true
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: always
+    path: /error
+  port: 8080
+  servlet:
+    context-path: /PlayBaseBall
+
+## session 설정
+session:
+  timeout: 30 # 분단위
+  debug-timeout: 60 # 분단위
+
+## intercepter 설정
+#resources:
+#  whiteList: /resources/**, /user/search/api/**
+
+## JsonWebToken
+#jwt:
+#  key: ""
+
+## url 설정
+url:
+  host:
+    external: "http://localhost:${server.port}${server.servlet.context-path}" # 외부 접근 주소
+    internal: "http://localhost:${server.port}${server.servlet.context-path}" # 내부 접근 주소
+
+file:
+  saveDir: "D:\\Workspace\\PlayBaseBall\\file" # 해당 폴더 하위에 YYYYMMDD 폴더 생성후 파일 저장
+  maxUploadSize: 10000000 # -1은 제한 없음, 100MB = 10000000
+  allowedExtensions: jpg,png
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
+      enabled: true
