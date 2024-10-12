@@ -19,10 +19,10 @@ spring:
     hibernate:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-      #      ddl-auto: update
-      ddl-auto: none
-    #    generate-ddl:  true
-    generate-ddl:  false
+      ddl-auto: update
+#     ddl-auto: none
+      generate-ddl:  true
+#    generate-ddl:  false
     show-sql: false
   servlet:
     multipart:
