@@ -21,83 +21,83 @@ public class Players {
     @Basic
     @Comment("게임 출장 횟수")
     @Column(name = "GAME_COUNT")
-    private Long gameCount;
+    private Integer gameCount;
 
     @Basic
     @Comment("나이")
     @Column(name = "AGE")
-    private Long age;
+    private Integer age;
 
     @Basic
     @Comment("타석")
     @Column(name = "PLATE_APPEARANCE")
-    private Long plateAppearance;
+    private Integer plateAppearance;
 
     @Basic
     @Comment("타수")
     @Column(name = "AT_BAT")
-    private Long atBat;
+    private Integer atBat;
 
     @Basic
     @Comment("득점")
     @Column(name = "RUNS")
-    private Long runs;
+    private Integer runs;
 
     @Basic
     @Comment("안타")
     @Column(name = "HITS")
-    private Long hits;
+    private Integer hits;
 
     @Basic
     @Comment("2루타")
     @Column(name = "DOUBLE")
-    private Long double_hits;
+    private Integer double_hits;
 
     @Basic
     @Comment("3루타")
     @Column(name = "TRIPLE")
-    private Long triple_hits;
+    private Integer triple_hits;
 
     @Basic
     @Comment("홈런")
     @Column(name = "HOME_RUN")
-    private Long homeRun;
+    private Integer homeRun;
     @Basic
     @Comment("루타")
     @Column(name = "TOTAL_BASE")
-    private Long totalBase;
+    private Integer totalBase;
     @Basic
     @Comment("득점")
     @Column(name = "RUN_BASE_IN")
-    private Long runBaseIn;
+    private Integer runBaseIn;
     @Basic
     @Comment("도루 성공")
     @Column(name = "STOLEN_BASE")
-    private Long stolenBase;
+    private Integer stolenBase;
     @Basic
     @Comment("도루 실패")
     @Column(name = "CAUGHT_STEALING")
-    private Long caughtStealing;
+    private Integer caughtStealing;
     @Basic
     @Comment("4구")
     @Column(name = "BASED_ON_BALLS")
-    private Long basedOnBalls;
+    private Integer basedOnBalls;
     @Basic
     @Comment("사구")
     @Column(name = "HIT_BY_PITCH")
-    private Long hitByPitch;
+    private Integer hitByPitch;
     @Basic
     @Comment("고의 4구")
     @Column(name = "INTENTIONAL_BASED_ON_BALLS")
-    private Long intentionalBasedOnBalls;
+    private Integer intentionalBasedOnBalls;
     @Basic
     @Comment("삼진")
     @Column(name = "STRIKE_OUT")
-    private Long strikeOut;
+    private Integer strikeOut;
     @Basic
     @Comment("병살타")
     @Column(name = "DOUBLE_PLAY")
-    private Long doublePlay;
+    private Integer doublePlay;
     @Basic
     @Comment("타율")
     @Column(name = "AVG")
