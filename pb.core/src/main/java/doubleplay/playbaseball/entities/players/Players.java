@@ -9,7 +9,6 @@ import org.hibernate.annotations.Comment;
 @Comment("선수 정보")
 @Table(name = "PLAYER")
 @Data
-@EqualsAndHashCode
 public class Players {
 
     @Id
@@ -48,10 +47,10 @@ public class Players {
     @Column(name = "HITS")
     private Integer hits;
 
-    @Basic
-    @Comment("2루타")
-    @Column(name = "DOUBLE")
-    private Integer double_hits;
+//    @Basic
+//    @Comment("2루타")
+//    @Column(name =  "`DOUBLE`")
+//    private Integer double_hits;
 
     @Basic
     @Comment("3루타")

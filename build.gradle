@@ -52,11 +52,6 @@ project(':pb.view') {
     dependencies {
         implementation project(':pb.core')
         implementation project(':pb.common')
-
-        //database
-        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-        implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-        runtimeOnly 'com.mysql:mysql-connector-j'
     }
 }
 
