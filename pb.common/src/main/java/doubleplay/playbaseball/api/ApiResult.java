@@ -10,9 +10,9 @@ import java.util.Optional;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ApiResult {
+public class ApiResult<T> {
     private String message;
-    private Optional<?> data;
+    private T data;
     private ApiResultCode result;
 }
 
