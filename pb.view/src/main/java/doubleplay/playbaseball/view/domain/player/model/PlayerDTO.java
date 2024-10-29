@@ -34,9 +34,15 @@ public class PlayerDTO {
         private double ops;
         private double wrc;
         private double war;
+
         public static ONE of(Players playerEntity) {
             ModelMapper mapper = new ModelMapper();
             return mapper.map(playerEntity, ONE.class);
+        }
+
+        public static Players saveOf(ONE dto) {
+            ModelMapper mapper = new ModelMapper();
+            return mapper.map(dto, Players.class);
         }
     }
 }

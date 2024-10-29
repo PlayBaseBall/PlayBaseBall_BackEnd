@@ -21,4 +21,10 @@ public class PlayerRestController {
     public ApiResult<PlayerDTO.ONE> findById(@RequestBody Long id) {
         return playerService.one(id);
     }
+
+    @PostMapping("/savePlayer")
+    public ApiResult<PlayerDTO.ONE> save(@RequestBody PlayerDTO.ONE one) {
+        return playerService.save(one);
+    }
+
 }
