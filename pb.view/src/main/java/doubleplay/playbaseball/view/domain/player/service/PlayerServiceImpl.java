@@ -57,4 +57,14 @@ public class PlayerServiceImpl implements PlayerService{
                 .build();
     }
 
+    @Override
+    @Transactional
+    public ApiResult<PlayerDTO.ONE> deleteOne(Long id) {
+        playerRepository.deleteById(id);
+        return ApiResult.<PlayerDTO.ONE>builder()
+                .result(ApiResultCode.SUCCESS)
+                .message(SystemCode.COMMON_MESSAGE.SUCCESS.getLabel())
+                .build();
+    }
+
 }
