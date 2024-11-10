@@ -12,7 +12,7 @@ Java21 을 사용하기 위해선 아래의 조건을 만족시켜야 합니다.
 + SpringBoot : 3.3.4<br/>
 + lombok : 1.8.30<br/>
 + Gradle : 8.10.2<br/>
-+ intelliJ : 2023.3<br/?
++ intelliJ : 2023.3<br/>
 
 
 
