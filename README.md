@@ -6,9 +6,15 @@
  ├─pb.core  # 데이터 베이스 엔티티 모듈 (Player, Game, Team, etc.)<br/>
  └─pb.view # PlayBaseBall 서비스 로직 및 관리 모듈<br/>
 
-<h3>개발 환경</h3>
+<h3>개발 환경</h3><br/>
+Java21 을 사용하기 위해선 아래의 조건을 만족시켜야 합니다.</br>
 + Java Version : 21<br/>
 + SpringBoot : 3.3.4<br/>
++ lombok : 1.8.30<br/>
++ Gradle : 8.10.2<br/>
++ intelliJ : 2023.3<br/?
+
+
 
 <h3>커밋 메시지 작성 가이드</h3>
 이 프로젝트에서는 명확하고 일관된 커밋 메시지를 통해 협업과 코드 유지보수성을 높이고자 합니다.<br/><br/>
