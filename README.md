@@ -6,7 +6,7 @@
  ├─pb.core  # 데이터 베이스 엔티티 모듈 (Player, Game, Team, etc.)<br/>
  └─pb.view # PlayBaseBall 서비스 로직 및 관리 모듈<br/>
 
-<h3>개발 환경</h3><br/>
+<h3>개발 환경</h3>
 Java21 을 사용하기 위해선 아래의 조건을 만족시켜야 합니다.</br>
 + Java Version : 21<br/>
 + SpringBoot : 3.3.4<br/>
