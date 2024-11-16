@@ -3,91 +3,14 @@ spring:
   config:
     activate:
       on-profile: local
-  main:
-    allow-bean-definition-overriding: true  # bean overriding is disabled ?? ?? ??
   datasource:
-    #    driver-class-name: org.mariadb.jdbc.Driver
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: "jdbc:mysql://localhost:3306/playbaseball?serverTimezone=Asia/Seoul"
-    username: "root"
-    password: "1234"
-    hikari:
-      maximum-pool-size: 10
-      max-lifetime: 180000
+    url: jdbc:mysql://localhost:3306/playbaseball?serverTimezone=UTC
+    username: root
+    password: 1234
   jpa:
-    #    database-platform: org.hibernate.dialect.MariaDBDialect
-    hibernate:
-      naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-      ddl-auto: create
-      #     ddl-auto: none
-      generate-ddl:  true
-    #    generate-ddl:  false
     show-sql: true
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
-  servlet:
-    multipart:
-      max-file-size: 200MB
-      max-request-size: 20MB
-  thymeleaf:
-    prefix: classpath:templates/
-    suffix: .html
-    cache: false
-  devtools:
-    livereload:
-      enabled: true
-    freemarker:
-      cache: false
-    thymeleaf:
-      cache: false
+    hibernate:
+      generate-ddl: true
+      ddl-auto: create
 
-## logback 설정
-logging:
-  config: classpath:logback-${spring.config.activate.on-profile}.xml
-
-server:
-  error:
-    include-exception: true
-    include-message: always
-    include-binding-errors: always
-    include-stacktrace: always
-    path: /error
-  port: 8080
-  servlet:
-    context-path: /PlayBaseBall
-
-## session ??
-session:
-  timeout: 30 # ???
-  debug-timeout: 60 # ???
-
-## intercepter ??
-#resources:
-#  whiteList: /resources/**, /user/search/api/**
-
-## JsonWebToken
-#jwt:
-#  key: ""
-
-## url ??
-url:
-  host:
-    external: "http://localhost:${server.port}${server.servlet.context-path}" # ?? ?? ??
-    internal: "http://localhost:${server.port}${server.servlet.context-path}" # ?? ?? ??
-
-file:
-  saveDir: "D:\\Workspace\\PlayBaseBall\\file" # ?? ?? ??? YYYYMMDD ?? ??? ?? ??
-  maxUploadSize: 10000000 # -1? ?? ??, 100MB = 10000000
-  allowedExtensions: jpg,png
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health
-  endpoint:
-    health:
-      show-details: always
-      enabled: true
