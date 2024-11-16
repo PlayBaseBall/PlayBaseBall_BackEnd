@@ -7,4 +7,5 @@ public interface PlayerService {
 
     ApiResult<PlayerDTO.ONE> one(Long id);
     ApiResult<PlayerDTO.ONE> save(PlayerDTO.ONE dto);
+    ApiResult<PlayerDTO.ONE> deleteOne(Long id);
 }
