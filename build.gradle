@@ -6,7 +6,7 @@ plugins {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(17)
     }
 }
 
@@ -58,7 +58,6 @@ subprojects {
 }
 
 project(':pb.view') {
-
     dependencies {
         implementation project(':pb.core')
         implementation project(':pb.common')
