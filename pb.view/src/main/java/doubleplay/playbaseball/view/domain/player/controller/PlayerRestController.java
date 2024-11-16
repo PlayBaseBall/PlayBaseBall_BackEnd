@@ -27,10 +27,4 @@ public class PlayerRestController {
         return playerService.save(one);
     }
 
-    //사용될 일 없을 것 같음(선수 정보가 삭제 되는 경우는 X)
-    @PostMapping("/deletePlayer")
-    public ApiResult<PlayerDTO.ONE> deleteOne(@RequestBody Long id) {
-        return playerService.deleteOne(id);
-    }
-
 }
