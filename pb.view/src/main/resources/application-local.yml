@@ -12,5 +12,12 @@ spring:
     show-sql: true
     hibernate:
       generate-ddl: true
-      ddl-auto: create
-
+      ddl-auto: update
+server:
+  servlet:
+    context-path: /playBaseBall
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
