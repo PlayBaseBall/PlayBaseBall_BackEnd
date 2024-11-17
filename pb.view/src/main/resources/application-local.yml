@@ -21,3 +21,7 @@ springdoc:
     path: /v3/api-docs
   swagger-ui:
     path: /swagger-ui.html
+  thymeleaf:
+    prefix: classpath:templates/
+    suffix: .html
+    cache: false
