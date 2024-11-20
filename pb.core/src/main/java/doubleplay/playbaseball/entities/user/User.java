@@ -38,23 +38,23 @@ public class User {
 
     @Comment("가입 경로")
     @Column(name = "PROVIDER")
-    private ROLE provider;
+    private PROVIDER provider;
 
     @Comment("등록 일시")
-    @Column(name = "REG_TIME", length = 21)
-    private Timestamp regTime;
+    @Column(name = "CREATE_AT", length = 21)
+    private Timestamp createAt;
 
     @Comment("수정 일시")
-    @Column(name = "UPD_TIME", length = 21)
-    private Timestamp updTime;
+    @Column(name = "UPDATE_AT", length = 21)
+    private Timestamp updateAt;
 
     @PrePersist
     protected void onPersist() {
-        this.regTime = this.updTime = Timestamp.from(Instant.now(Clock.systemUTC()));
+        this.createAt = this.updateAt = Timestamp.from(Instant.now(Clock.systemUTC()));
     }
 
     @PreUpdate
     protected void onUpdate() {
-        this.updTime = Timestamp.from(Instant.now(Clock.systemUTC()));
+        this.updateAt = Timestamp.from(Instant.now(Clock.systemUTC()));
     }
 }
