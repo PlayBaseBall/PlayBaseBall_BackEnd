@@ -1,7 +1,6 @@
 package doubleplay.playbaseball.view.domain.user.model;
 
 import doubleplay.playbaseball.entities.user.PROVIDER;
-import doubleplay.playbaseball.entities.user.ROLE;
 import lombok.Data;
 
 public class UserDTO {

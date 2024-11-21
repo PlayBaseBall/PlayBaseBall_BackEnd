@@ -10,8 +10,8 @@ import java.time.Instant;
 
 @Entity
 @Data
-@Comment("팀 정보")
-@Table(name = "TEAM")
+@Comment("사용자 정보")
+@Table(name = "USER")
 public class User {
 
     @Id
