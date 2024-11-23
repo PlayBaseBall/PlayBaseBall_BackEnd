@@ -25,14 +25,14 @@ public class PlayerServiceImpl implements PlayerService{
     public ApiResult<PlayerDTO.ONE> one(Long id) {
 
         if (id == null || id==0){
-            throw new CommonException(SystemCode.COMMON_MESSAGE.NULL.getCode());
+            throw new CommonException(SystemCode.COMMON_MESSAGE.ERROR_NULL_REFERENCE.getCode());
         }
 
-        PlayerDTO.ONE one =  playerRepository.findById(id).map(PlayerDTO.ONE::of).orElseThrow(() -> new CommonException(SystemCode.COMMON_MESSAGE.NULL));
+        PlayerDTO.ONE one =  playerRepository.findById(id).map(PlayerDTO.ONE::of).orElseThrow(() -> new CommonException(SystemCode.COMMON_MESSAGE.ERROR_NULL_REFERENCE));
 
         return ApiResult.<PlayerDTO.ONE>builder()
                 .result(ApiResultCode.SUCCESS)
-                .message(SystemCode.COMMON_MESSAGE.SUCCESS.getLabel())
+                .message(SystemCode.COMMON_MESSAGE.MSG_SUCCESS.getLabel())
                 .data(one)
                 .build();
     }
@@ -52,7 +52,7 @@ public class PlayerServiceImpl implements PlayerService{
 
         return ApiResult.<PlayerDTO.ONE>builder()
                 .result(ApiResultCode.SUCCESS)
-                .message(SystemCode.COMMON_MESSAGE.SUCCESS.getLabel())
+                .message(SystemCode.COMMON_MESSAGE.MSG_SUCCESS.getLabel())
                 .data(dto)
                 .build();
     }
@@ -63,7 +63,7 @@ public class PlayerServiceImpl implements PlayerService{
         playerRepository.deleteById(id);
         return ApiResult.<PlayerDTO.ONE>builder()
                 .result(ApiResultCode.SUCCESS)
-                .message(SystemCode.COMMON_MESSAGE.SUCCESS.getLabel())
+                .message(SystemCode.COMMON_MESSAGE.MSG_SUCCESS.getLabel())
                 .build();
     }
 
