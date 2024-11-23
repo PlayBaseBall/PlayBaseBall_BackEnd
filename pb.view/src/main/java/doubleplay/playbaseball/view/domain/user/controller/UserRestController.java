@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/"+ Constants.URI.user)
@@ -19,8 +18,17 @@ public class UserRestController {
     @Autowired
     UserService userService;
 
-    @PostMapping("join")
+    @PostMapping("/join")
     public ApiResult<?> join(@RequestBody UserDTO.JOIN dto) {
         return userService.join(dto);
+    }
+
+    @PostMapping("/update")
+    public ApiResult<UserDTO.ONE> update(@RequestBody UserDTO.ONE dto) {
+        return userService.update(dto);
+    }
+    @PostMapping("/delete")
+    public ApiResult<Long> delete(@RequestBody Long id) {
+        return userService.delete(id);
     }
 }

@@ -6,4 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 public interface UserService {
     ApiResult<?> join(UserDTO.JOIN dto);
+
+    ApiResult<UserDTO.ONE> update(UserDTO.ONE dto);
+    ApiResult<Long> delete(Long id);
 }

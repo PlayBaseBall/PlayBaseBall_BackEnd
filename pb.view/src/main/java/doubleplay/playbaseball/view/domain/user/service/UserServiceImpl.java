@@ -4,11 +4,14 @@ import doubleplay.playbaseball.api.ApiResult;
 import doubleplay.playbaseball.api.ApiResultCode;
 import doubleplay.playbaseball.code.SystemCode;
 import doubleplay.playbaseball.entities.user.User;
+import doubleplay.playbaseball.exceptions.CommonException;
 import doubleplay.playbaseball.view.domain.user.model.UserDTO;
 import doubleplay.playbaseball.view.domain.user.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -28,11 +31,9 @@ public class UserServiceImpl implements UserService{
         userRepository.save(user);
         return ApiResult.builder()
                 .result(ApiResultCode.SUCCESS)
-                .message(SystemCode.COMMON_MESSAGE.SUCCESS.getLabel())
+                .message(SystemCode.COMMON_MESSAGE.MSG_SUCCESS.getLabel())
                 .build();
     }
-
-
     /**
      * 회원가입 요청 데이터 유효성 검증
      */
@@ -60,5 +61,35 @@ public class UserServiceImpl implements UserService{
 
     public boolean isEmailTaken(String email) {
         return userRepository.findByEmail(email).isPresent();
+    }
+
+
+    @Override
+    @Transactional
+    public ApiResult<UserDTO.ONE> update(UserDTO.ONE dto) {
+        Optional.ofNullable(dto.getId()).orElseThrow(() -> new CommonException(SystemCode.COMMON_MESSAGE.ERROR_MISSING_REQUIRED_DATA));
+        User userEntity = userRepository.findById(dto.getId()).orElseThrow(() -> new CommonException(SystemCode.COMMON_MESSAGE.ERROR_NULL_REFERENCE));
+
+        userEntity.setEmail(dto.getEmail());
+        userEntity.setPassword(passwordEncoder.encode(dto.getPassword()));
+        userEntity.setRole(dto.getRole());
+
+        UserDTO.ONE one = UserDTO.ONE.of(userEntity);
+        return ApiResult.<UserDTO.ONE>builder()
+                .result(ApiResultCode.SUCCESS)
+                .message(SystemCode.COMMON_MESSAGE.MSG_SUCCESS.getLabel())
+                .data(one)
+                .build();
+    }
+
+    @Override
+    public ApiResult<Long> delete(Long id) {
+        Optional.ofNullable(id).orElseThrow(() -> new CommonException(SystemCode.COMMON_MESSAGE.ERROR_MISSING_REQUIRED_DATA));
+        userRepository.deleteById(id);
+        return ApiResult.<Long>builder()
+                .result(ApiResultCode.SUCCESS)
+                .message(SystemCode.COMMON_MESSAGE.MSG_SUCCESS.getLabel())
+                .data(id)
+                .build();
     }
 }
