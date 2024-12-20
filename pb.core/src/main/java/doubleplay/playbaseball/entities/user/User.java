@@ -1,6 +1,7 @@
 package doubleplay.playbaseball.entities.user;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.Data;
 import org.hibernate.annotations.Comment;
 
@@ -30,6 +31,7 @@ public class User {
 
     @Comment("사용자 이메일")
     @Column(name = "EMAIL")
+    @Email
     private String email;
 
     @Comment("권한")
