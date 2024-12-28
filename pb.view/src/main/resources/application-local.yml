@@ -12,15 +12,17 @@ spring:
     show-sql: true
     hibernate:
       generate-ddl: true
-      ddl-auto: update
+      ddl-auto: create
 server:
   servlet:
     context-path: /playBaseBall
 springdoc:
   api-docs:
-    path: /v3/api-docs
+    path: /v3/api-docs # API 명세 JSON 경로
   swagger-ui:
     path: /swagger-ui.html
+    operationsSorter: method # UI에서 정렬 기준 설정
+    tagsSorter: alpha # 태그 알파벳 순 정렬
   thymeleaf:
     prefix: classpath:templates/
     suffix: .html
